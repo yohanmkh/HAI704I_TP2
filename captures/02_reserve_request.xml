@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.hotel/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <ws:reserve>
+      <reservationRequest>
+        <agencyId>AGENCY_VOYAGE_PRO</agencyId>
+        <agencySecret>secret_voyage_123</agencySecret>
+        <offerId>OFFER-H1-H1-R3</offerId>
+        <requestId>c4b8e210-91fa-4f51-b8ef-51a83e012345</requestId>
+        <traveler>
+          <firstName>Sophie</firstName>
+          <lastName>Germain</lastName>
+        </traveler>
+        <payment>
+          <cardNumber>4532 9999 8888 1234</cardNumber>
+          <expiryMonth>12</expiryMonth>
+          <expiryYear>2028</expiryYear>
+          <cvc>888</cvc>
+        </payment>
+      </reservationRequest>
+    </ws:reserve>
+  </soapenv:Body>
+</soapenv:Envelope>

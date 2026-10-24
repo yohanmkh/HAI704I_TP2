@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by XML-WS Runtime (https://github.com/eclipse-ee4j/metro-jax-ws). Runtime's version is XML-WS Runtime 4.0.5 git-revision#c828e2e. -->
+<xs:schema xmlns:tns="http://ws.hotel/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.hotel/">
+  <xs:element name="OfferNotFoundFault" nillable="true" type="tns:offerNotFoundFault"/>
+  <xs:element name="OfferUnavailableFault" nillable="true" type="tns:offerUnavailableFault"/>
+  <xs:element name="PaymentValidationFault" nillable="true" type="tns:paymentValidationFault"/>
+  <xs:element name="UnauthorizedAgencyFault" nillable="true" type="tns:unauthorizedAgencyFault"/>
+  <xs:element name="reserve" type="tns:reserve"/>
+  <xs:element name="reserveResponse" type="tns:reserveResponse"/>
+  <xs:element name="searchRooms" type="tns:searchRooms"/>
+  <xs:element name="searchRoomsResponse" type="tns:searchRoomsResponse"/>
+  <xs:complexType name="reserve">
+    <xs:sequence>
+      <xs:element name="reservationRequest" type="tns:reservationRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reservationRequest">
+    <xs:sequence>
+      <xs:element name="agencyId" type="xs:string" minOccurs="0"/>
+      <xs:element name="agencySecret" type="xs:string" minOccurs="0"/>
+      <xs:element name="offerId" type="xs:string" minOccurs="0"/>
+      <xs:element name="payment" type="tns:paymentDto" minOccurs="0"/>
+      <xs:element name="requestId" type="xs:string" minOccurs="0"/>
+      <xs:element name="traveler" type="tns:travelerDto" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paymentDto">
+    <xs:sequence>
+      <xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="cvc" type="xs:string" minOccurs="0"/>
+      <xs:element name="expiryMonth" type="xs:int"/>
+      <xs:element name="expiryYear" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="travelerDto">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reserveResponse">
+    <xs:sequence>
+      <xs:element name="reservationConfirmation" type="tns:reservationConfirmation" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reservationConfirmation">
+    <xs:sequence>
+      <xs:element name="checkIn" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkOut" type="xs:string" minOccurs="0"/>
+      <xs:element name="hotelName" type="xs:string" minOccurs="0"/>
+      <xs:element name="maskedCardNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="replayed" type="xs:boolean"/>
+      <xs:element name="reservationReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="roomType" type="xs:string" minOccurs="0"/>
+      <xs:element name="totalPrice" type="xs:double"/>
+      <xs:element name="travelerName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unauthorizedAgencyFault">
+    <xs:sequence>
+      <xs:element name="agencyId" type="xs:string" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="offerNotFoundFault">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="offerId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paymentValidationFault">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="reason" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="offerUnavailableFault">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="offerId" type="xs:string" minOccurs="0"/>
+      <xs:element name="reason" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchRooms">
+    <xs:sequence>
+      <xs:element name="searchRequest" type="tns:searchRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchRequest">
+    <xs:sequence>
+      <xs:element name="agencyId" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkIn" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkOut" type="xs:string" minOccurs="0"/>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+      <xs:element name="guests" type="xs:int"/>
+      <xs:element name="maxPrice" type="xs:double"/>
+      <xs:element name="minStars" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchRoomsResponse">
+    <xs:sequence>
+      <xs:element name="roomOffer" type="tns:roomOffer" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="roomOffer">
+    <xs:sequence>
+      <xs:element name="hotelName" type="xs:string" minOccurs="0"/>
+      <xs:element name="offerId" type="xs:string" minOccurs="0"/>
+      <xs:element name="pricePerNight" type="xs:double"/>
+      <xs:element name="roomType" type="xs:string" minOccurs="0"/>
+      <xs:element name="stars" type="xs:int"/>
+      <xs:element name="totalPrice" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

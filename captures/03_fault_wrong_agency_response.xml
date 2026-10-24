@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope">
+      <faultcode>S:Server</faultcode>
+      <faultstring>Access denied: agency 'ROGUE_AGENCY_404' is not a recognized partner.</faultstring>
+      <detail>
+        <ns2:UnauthorizedAgencyFault xmlns:ns2="http://ws.hotel/">
+          <agencyId>ROGUE_AGENCY_404</agencyId>
+          <message>Access denied: agency 'ROGUE_AGENCY_404' is not a recognized partner.</message>
+        </ns2:UnauthorizedAgencyFault>
+      </detail>
+    </S:Fault>
+  </S:Body>
+</S:Envelope>

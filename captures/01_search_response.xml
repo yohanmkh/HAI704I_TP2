@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:searchRoomsResponse xmlns:ns2="http://ws.hotel/">
+      <roomOffer>
+        <hotelName>Grand Hotel Montpellier</hotelName>
+        <offerId>OFFER-H1-H1-R2</offerId>
+        <pricePerNight>127.5</pricePerNight>
+        <roomType>Double Deluxe</roomType>
+        <stars>4</stars>
+        <totalPrice>382.5</totalPrice>
+      </roomOffer>
+      <roomOffer>
+        <hotelName>Grand Hotel Montpellier</hotelName>
+        <offerId>OFFER-H1-H1-R3</offerId>
+        <pricePerNight>212.5</pricePerNight>
+        <roomType>Family Suite</roomType>
+        <stars>4</stars>
+        <totalPrice>637.5</totalPrice>
+      </roomOffer>
+    </ns2:searchRoomsResponse>
+  </S:Body>
+</S:Envelope>

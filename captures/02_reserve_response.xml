@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:reserveResponse xmlns:ns2="http://ws.hotel/">
+      <reservationConfirmation>
+        <checkIn>2026-11-01</checkIn>
+        <checkOut>2026-11-04</checkOut>
+        <hotelName>Grand Hotel Montpellier</hotelName>
+        <maskedCardNumber>****-****-****-1234</maskedCardNumber>
+        <replayed>false</replayed>
+        <reservationReference>RES-4F52E255</reservationReference>
+        <roomType>Family Suite</roomType>
+        <totalPrice>637.5</totalPrice>
+        <travelerName>Sophie Germain</travelerName>
+      </reservationConfirmation>
+    </ns2:reserveResponse>
+  </S:Body>
+</S:Envelope>

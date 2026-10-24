@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.hotel/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <ws:searchRooms>
+      <searchRequest>
+        <agencyId>AGENCY_VOYAGE_PRO</agencyId>
+        <city>Montpellier</city>
+        <checkIn>2026-11-01</checkIn>
+        <checkOut>2026-11-04</checkOut>
+        <guests>2</guests>
+        <minStars>4</minStars>
+        <maxPrice>250.0</maxPrice>
+      </searchRequest>
+    </ws:searchRooms>
+  </soapenv:Body>
+</soapenv:Envelope>
