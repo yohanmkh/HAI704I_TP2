@@ -98,7 +98,7 @@ public class AgencyCli {
 
         int mois = lireEntier("Mois expiration (1-12) [12] : ", 12);
         int annee = lireEntier("Année expiration [2028] : ", 2028);
-        System.out.print("CVC [123] : ");
+        System.out.print("CVC : ");
         String cvc = scanner.nextLine().trim();
         if (cvc.isEmpty()) {
             cvc = "123";
