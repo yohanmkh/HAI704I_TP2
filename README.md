@@ -67,7 +67,7 @@ Ouvrez un **troisième terminal** :
 ```bash
 cd agence
 mvn clean compile
-mvn exec:exec
+mvn exec:java
 ```
 
 > **Note importante sur `wsimport`** :  

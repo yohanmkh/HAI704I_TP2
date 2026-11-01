@@ -55,13 +55,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.5.0</version>
                 <configuration>
-                    <executable>java</executable>
                     <mainClass>agence.AgencyApp</mainClass>
-                    <arguments>
-                        <argument>-classpath</argument>
-                        <classpath/>
-                        <argument>agence.AgencyApp</argument>
-                    </arguments>
                 </configuration>
             </plugin>
         </plugins>
