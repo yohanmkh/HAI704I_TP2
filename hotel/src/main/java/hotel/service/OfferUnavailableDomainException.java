@@ -1,6 +1,8 @@
 package hotel.service;
 
-public class OfferUnavailableDomainException extends Exception {
+import java.io.Serializable;
+
+public class OfferUnavailableDomainException extends Exception implements Serializable {
     private static final long serialVersionUID = 1L;
     private final String offerId;
     private final String reason;

@@ -1,9 +1,10 @@
 package hotel.ws;
 
+import java.io.Serializable;
 import jakarta.xml.ws.WebFault;
 
 @WebFault(name = "OfferUnavailableFault", targetNamespace = "http://ws.hotel/")
-public class OfferUnavailableException extends Exception {
+public class OfferUnavailableException extends Exception implements Serializable {
     private static final long serialVersionUID = 1L;
     private final OfferUnavailableFault faultInfo;
 

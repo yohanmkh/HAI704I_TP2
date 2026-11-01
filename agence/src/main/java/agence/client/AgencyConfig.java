@@ -28,10 +28,18 @@ public class AgencyConfig {
             System.err.println("Warning: could not load " + DEFAULT_PROPERTIES_FILE + ": " + e.getMessage());
         }
 
-        this.agencyId = System.getProperty("agency.id", props.getProperty("agency.id", "AGENCY_VOYAGE_PRO"));
-        this.agencySecret = System.getProperty("agency.secret", props.getProperty("agency.secret", "secret_voyage_123"));
+        String envId = System.getenv("AGENCY_ID");
+        String envSecret = System.getenv("AGENCY_SECRET");
+        String envUrls = System.getenv("HOTEL_URLS");
 
-        String rawUrls = System.getProperty("hotel.urls", props.getProperty("hotel.urls", "http://localhost:8080/hotel"));
+        String defaultId = envId != null && !envId.isBlank() ? envId : props.getProperty("agency.id", "AGENCY_VOYAGE_PRO");
+        String defaultSecret = envSecret != null && !envSecret.isBlank() ? envSecret : props.getProperty("agency.secret", "secret_voyage_123");
+        String defaultUrls = envUrls != null && !envUrls.isBlank() ? envUrls : props.getProperty("hotel.urls", "http://localhost:8080/hotel,http://localhost:8081/hotel");
+
+        this.agencyId = System.getProperty("agency.id", defaultId);
+        this.agencySecret = System.getProperty("agency.secret", defaultSecret);
+
+        String rawUrls = System.getProperty("hotel.urls", defaultUrls);
         for (String u : rawUrls.split(",")) {
             if (!u.trim().isEmpty()) {
                 hotelUrls.add(u.trim());

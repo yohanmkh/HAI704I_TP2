@@ -133,7 +133,8 @@ public class AgencyService {
             );
 
         } catch (OfferUnavailableException e) {
-            return ReservationReceipt.failure("Chambre indisponible : " + e.getMessage());
+            String msg = (e.getMessage() != null && !e.getMessage().isBlank()) ? e.getMessage() : "Chambre déjà réservée.";
+            return ReservationReceipt.failure("Cette offre n'est plus disponible : " + msg);
 
         } catch (PaymentValidationException e) {
             return ReservationReceipt.failure("Paiement refusé : " + e.getMessage());
