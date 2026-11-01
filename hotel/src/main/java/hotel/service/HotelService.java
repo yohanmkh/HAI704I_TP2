@@ -62,13 +62,18 @@ public class HotelService {
                 double total = Math.round(prixNuit * nuits * 100.0) / 100.0;
                 String offerId = "OFFER-" + h.getId() + "-" + r.getId();
 
-                LocalDate in = crit.getCheckIn() != null ? crit.getCheckIn() : LocalDate.now();
-                LocalDate out = crit.getCheckOut() != null ? crit.getCheckOut() : LocalDate.now().plusDays(nuits);
-                Instant exp = Instant.now().plus(2, ChronoUnit.HOURS);
+                // Check if quote already exists - if booked, don't overwrite (preserve booked status)
+                // but still include the room in search results so user sees it and gets error on reserve
+                Optional<Quote> existingQuote = repo.findQuoteById(offerId);
+                if (existingQuote.isEmpty() || !existingQuote.get().isBooked()) {
+                    LocalDate in = crit.getCheckIn() != null ? crit.getCheckIn() : LocalDate.now();
+                    LocalDate out = crit.getCheckOut() != null ? crit.getCheckOut() : LocalDate.now().plusDays(nuits);
+                    Instant exp = Instant.now().plus(2, ChronoUnit.HOURS);
 
-                // devis daté pour figer le prix
-                Quote q = new Quote(offerId, h.getId(), h.getName(), r.getType(), in, out, prixNuit, total, agencyId, exp);
-                repo.saveQuote(q);
+                    // devis daté pour figer le prix
+                    Quote q = new Quote(offerId, h.getId(), h.getName(), r.getType(), in, out, prixNuit, total, agencyId, exp);
+                    repo.saveQuote(q);
+                }
 
                 list.add(new HotelOffer(offerId, h.getName(), r.getType(), prixNuit, h.getStars(), total));
             }
