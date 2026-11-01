@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "1. Lancer Agence (CLI)",
+            "request": "launch",
+            "mainClass": "agence.AgencyApp",
+            "projectName": "agence",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "2. Lancer Hotel 1 (Port 8080)",
+            "request": "launch",
+            "mainClass": "hotel.ws.HotelPublisher",
+            "projectName": "hotel",
+            "vmArgs": "-Dport=8080 -Dprofile=hotel1",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "3. Lancer Hotel 2 (Port 8081)",
+            "request": "launch",
+            "mainClass": "hotel.ws.HotelPublisher",
+            "projectName": "hotel",
+            "vmArgs": "-Dport=8081 -Dprofile=hotel2",
+            "console": "integratedTerminal"
+        }
+    ]
+}
